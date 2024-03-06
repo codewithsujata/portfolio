@@ -21,10 +21,34 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </head>
 <body>
 	<!-- Header Starts Here ---->
-	<div class="header">
+	<!-- <div class="header">
 		<div class="container">
 			<div class="header-profile">
 				<img src="profile.png" alt=""/>
+			</div>
+		</div>
+	</div> -->
+	<div class="top_menu">
+		<div class="container">
+			<div class="nav-container">
+     <h3 class="logo">Logo</h3>
+
+     <ul id="menu">
+       <li>Home</li>
+       <li>Career</li>
+       <li>Blog</li>
+       <li>Contact</li>
+     </ul>
+     <span class="menubtn" onclick="openMenu()">&#9776</span>
+     <span class="closebtn" onclick="closeMenu()">&#9746</span>
+
+   </div>
+		</div>
+	</div>
+	<div style="display: flex;margin-top:39px;">
+	<div id="banner_heading" style="width: 50%;"><h2>Technical precision</h2> <h2>methodical innovation</h2><div style="margin-top:20px;"><button>Contact Us</button></div></div>
+	<div class="header">
+			<div class="container">
 			</div>
 		</div>
 	</div>
@@ -325,58 +349,88 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>
 					<div class="clearfix"></div>
 				</div>
-				<form id="contactForm" action="https://formspree.io/f/mzbngvpz" method="post" onsubmit="submitForm(event)">
-	    <div class="contact-form">
-	        <div class="text">
-	            <input type="text" name="name" placeholder="Your Name" required />
-	        </div>
-	        <div class="text">
-	            <input type="email" name="email" placeholder="Your Email" required />
-	        </div>
-	        <div class="text">
-	            <textarea name="message" placeholder="Your Message" required></textarea>
-	        </div>
-	        <div class="text">
-	            <input type="submit" value="Submit"/>
-	        </div>
-	    </div>
-	</form>
-<script src="contactAlert.js"></script>
-	<script>
-	    function submitForm(event) {
-	        event.preventDefault();
-	        const form = document.getElementById('contactForm');
-	        const formData = new FormData(form);
-	        const xhr = new XMLHttpRequest();
-	        xhr.open('POST', form.getAttribute('action'));
-	        xhr.onload = function() {
-	            if (xhr.status === 200) {
-	                form.reset();
-	                Swal.fire({
-	                    icon: 'success',
-	                    title: 'Success',
-	                    text: 'Email sent successfully!',
-	                });
-	            } else {
-	                showErrorAlert('Error', 'There was an error. Please try again later.');
-	            }
-	        };
-	        xhr.onerror = function() {
-	            showErrorAlert('Network Error', 'There was a network error. Please check your internet connection and try again.');
-	        };
-	        xhr.send(formData);
-	    }
-	    function showErrorAlert(title, message) {
-	        Swal.fire({
-	            icon: 'error',
-	            title: title,
-	            text: message,
-	        });
-	    }
-	</script>
+				<form id="contactForm" method="post" onsubmit="submitForm(event)">
+    <div class="contact-form">
+        <div class="text">
+            <input type="text" name="name" placeholder="Your Name" required />
+        </div>
+        <div class="text">
+            <input type="email" name="email" placeholder="Your Email" required />
+        </div>
+        <div class="text">
+            <textarea name="message" placeholder="Your Message" required></textarea>
+        </div>
+        <div class="text">
+            <input type="submit" value="Submit"/>
+        </div>
+    </div>
+</form>
+
+<div id="successMessage" class="success-message" style="display: none;">
+    <p>Your message has been sent successfully.</p>
+</div>
+
+<style>
+    .success-message {
+        background-color: #dff0d8;
+        color: #3c763d;
+        border: 1px solid #d6e9c6;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 5px;
+    }
+</style>
+
+<script>
+    function submitForm(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        var form = document.getElementById('contactForm');
+        var formData = new FormData(form);
+
+        // Send the form data asynchronously
+        fetch('https://formspree.io/f/mzbngvpz', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                document.getElementById('successMessage').style.display = 'block';
+                form.reset(); // Reset the form
+            } else {
+                throw new Error('Failed to send message');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Handle error if needed
+        });
+    }
+</script>
+
 			</div>
 		</div>
 	</div>
+	<script>
+		const menu = document.getElementById("menu");
+const menubtn = document.querySelector(".menubtn");
+const closebtn = document.querySelector(".closebtn");
+
+function openMenu() {
+  menu.style.display = "block";
+  menubtn.style.display = "none";
+  closebtn.style.display = "block";
+}
+
+function closeMenu() {
+  menubtn.style.display = "block";
+  closebtn.style.display = "none";
+  menu.style.display = "none";
+}
+</script>
 	<!--- Contact Ends Here ---->
 	<!--- Footer Starts Here ---->
 	<div class="footer">
