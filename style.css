@@ -1298,7 +1298,7 @@ p.copyright a:hover{
 		width:80%;
 	}
 	.education {
-		margin-top: 156%;
+		/* margin-top: 156%; */
 	}
 	ul.hoby li {
 		margin: 0em 0em;
@@ -1344,6 +1344,12 @@ p.copyright a:hover{
 		margin-top: 20px;
 	}
   }
+
+@media only screen and (min-width: 219px) and (max-width: 1040px) {
+	.header{
+		height: 39vh !important;
+	}
+}
 
   
   
