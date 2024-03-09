@@ -210,7 +210,7 @@ a.download span{
 /*--- Experience Starts Here ----*/
 .experience{
 	background:#f1f2f7;
-	min-height:1050px;
+	min-height:639px;
 }
 .exp-top{
 	padding:2em 0;
@@ -325,7 +325,7 @@ label.book{
 
 }
 .education{
-	margin-top:35%;
+	/* margin-top:35%; */
 }
 /*--- Experience Ends Here ----*/
 /*--- Skills Starts Here ----*/
@@ -849,7 +849,7 @@ i.twit{
 
   #menu {
     width: 100%;
-    background-color: lightseagreen;
+    background-color: #2b3b4b;
     position: absolute;
     top: 4.6rem;
     right: 0;
@@ -934,7 +934,7 @@ p.copyright a:hover{
 		min-height: 970px;
 	}
 	.education {
-		margin-top: 38%;
+		/* margin-top: 38%; */
 	}
 	span.devide-line {
 		height: 409px;
@@ -982,7 +982,7 @@ p.copyright a:hover{
 		left: 28.3em;
 	}
 	.education {
-		margin-top: 55%;
+		/* margin-top: 55%; */
 	}
 	label.book {
 		left: 24.7em;
@@ -991,7 +991,7 @@ p.copyright a:hover{
 		margin-bottom: 2em;
 	}
 	.experience {
-		min-height: 1030px;
+		min-height: 619px  !important;
 	}
 	span.devide-line {
 		height: 435px;
@@ -1080,7 +1080,7 @@ p.copyright a:hover{
 		font-size:15px;
 	}
 	.experience {
-		min-height: 906px;
+		min-height: 590px !important;
 	}
 	span.devide-line {
 		height: 396px;
@@ -1179,13 +1179,13 @@ p.copyright a:hover{
 		left: 17.9%;
 	}
 	.education {
-		margin-top: 95%;
+		/* margin-top: 95%; */
 	}
 	span.devide-line {
 		height: 418px;
 	}
 	.experience {
-		min-height: 1040px;
+		min-height: 582px !important;
 	}
 	.skill-grid h3 {
 		font-size: 16px;
@@ -1331,4 +1331,20 @@ p.copyright a:hover{
 		font-size:14px;
 	}
 }
+
+/* For screens between 768 pixels and 1162 pixels */
+@media only screen and (min-width: 219px) and (max-width: 1162px) {
+	#top_div{
+		display: block !important;
+	}
+	#banner_heading{
+		width: 100% !important;
+	}
+	.header{
+		margin-top: 20px;
+	}
+  }
+
+  
+  
 /*--- Media Queries Ends Here ---*/
